@@ -1,0 +1,33 @@
+#fav-placeholder{
+    position: relative;
+    top: -4.9rem;
+}
+
+.favorites{
+    margin-bottom: 1rem;
+    padding: 1rem;
+    .top{
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        h2{
+            font-size: 1.6rem;
+            font-weight: 300;
+        }
+        p{
+            font-weight: 300;
+            font-size: .9rem;
+        }
+    }
+
+    .bottom{
+        margin-top: 1rem;
+        .slider-wrap{
+            display: flex;
+            gap: 1rem;
+            width: fit-content;
+            // border: 1px solid red;
+            transform: translateX(-00%);
+        }
+    }
+}
