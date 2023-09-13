@@ -5,9 +5,9 @@ import WecodeLogo from '../svg-components/WecodeLogo'
 import Avatar from '../svg-components/Avatar'
 import Bag from '../svg-components/Bag'
 import { useContext, useEffect, useRef, useState } from 'react'
-import Menu from '../Menu/Menu'
+import Menu from '../Outros/Menu/Menu'
 import { CartContext } from '../../context/CartContext'
-import Cart from '../Cart/Cart'
+import Cart from '../Outros/Cart/Cart'
 
 const Navbar = () => {
   const { cart } = useContext(CartContext)

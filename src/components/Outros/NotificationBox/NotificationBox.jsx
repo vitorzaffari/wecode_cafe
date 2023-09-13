@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import './NotificationBox.scss'
-import { NotificationContext } from '../../context/NotificationContext'
+import { NotificationContext } from '../../../context/NotificationContext'
 
 const NotificationBox = () => {
 
@@ -11,25 +11,20 @@ const NotificationBox = () => {
   useEffect(() => {
     if (message) {
       divRef.current.style.display = 'block';
-
       setIsActive(true)
-    } else {
-      setIsActive(false)
       const timeoutId = setTimeout(() => {
         if (divRef.current) {
-          divRef.current.style.display = 'none';
+          setIsActive(false)
         }
-      }, 300);
-
+      }, 3000);
       return () => {
         clearTimeout(timeoutId);
       };
-
     }
   }, [message])
 
   return (
-    <div ref={divRef} className={`notification-box ${isActive ? 'active' : ''}`}>{message}</div>
+    <div ref={divRef} className={`notification-box ${isActive ? 'active' : ''}`}><p>{message}</p></div>
   )
 }
 

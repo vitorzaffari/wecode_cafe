@@ -1,6 +1,6 @@
 .options {
-  background-color: #141414;
-  color: #fff;
+  background-color: var(--bakcground-color-dark);
+  color: var(--text-color-light);
   height: 300px;
   display: grid;
   place-content: center;

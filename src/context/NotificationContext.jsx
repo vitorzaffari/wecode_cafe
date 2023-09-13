@@ -12,7 +12,7 @@ export const NotificationProvider = ({ children }) => {
         if (message) {
             timeoutId = setTimeout(() => {
                 setMessage('');
-            }, 3000);
+            }, 4000);
         }
 
         return () => {

@@ -1,6 +1,6 @@
 .footer {
-  background-color: #053766;
-  color: #fff;
+  background-color: var(--background-color-blue);
+  color: var(--text-color-light);
   padding: 1rem;
 
   .top {
@@ -32,13 +32,11 @@
     }
     h3 {
       font-size: 0.9rem;
-      // margin-top: 1rem;
     }
 
     .contact-wrap {
       display: flex;
       flex-direction: column;
-      // margin: 1rem 0;
     }
 
     .contact-wrap a,
@@ -49,6 +47,26 @@
       text-decoration: underline;
       width: fit-content;
       max-width: 80%;
+    }
+  }
+}
+
+
+@media (min-width: 768px) {
+  .footer {
+    .bottom {
+      gap: 0;
+      margin: 3rem auto;
+      height: 300px;
+      justify-content: center;
+      align-items: center;
+      max-width: 1000px;
+      flex-wrap: wrap;
+    }
+    .bottom > * {
+      height: 130px;
+      width: 30%;
+      max-width: 300px;
     }
   }
 }

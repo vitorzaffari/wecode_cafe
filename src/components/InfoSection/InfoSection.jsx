@@ -1,4 +1,4 @@
-import NewsCard from '../NewsCard/NewsCard'
+import NewsCard from '../Cards/NewsCard/NewsCard'
 import './InfoSection.scss'
 import Arrow from '../svg-components/Arrow'
 import { useRef, useState } from 'react'

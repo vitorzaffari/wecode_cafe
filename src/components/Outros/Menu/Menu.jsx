@@ -1,6 +1,6 @@
-import WecodeLogo from '../svg-components/WecodeLogo'
-import CloseMenu from '../svg-components/CloseMenu'
-import Arrow from '../svg-components/Arrow'
+import WecodeLogo from '../../svg-components/WecodeLogo'
+import CloseMenu from '../../svg-components/CloseMenu'
+import Arrow from '../../svg-components/Arrow'
 import './Menu.scss'
 
 const Menu = ({ forwardedRef, handleMenu }) => {

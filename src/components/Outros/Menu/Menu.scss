@@ -2,7 +2,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #fff;
+  background-color: var(--background-color-white);
   width: 70%;
   height: 100vh;
   transform: translateX(-100%);
@@ -84,5 +84,11 @@
         font-weight: 600;
       }
     }
+  }
+}
+
+@media (min-width: 480px) {
+  .menu {
+    max-width: 400px;
   }
 }

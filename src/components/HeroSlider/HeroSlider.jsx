@@ -105,14 +105,6 @@ const HeroSlider = () => {
     }
 
 
-
-
-
-
-
-
-
-
     function handleUp(e) {
         if (!isDragging) return;
         setIsDragging(false);

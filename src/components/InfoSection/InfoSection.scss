@@ -1,5 +1,5 @@
 .info-section {
-  background-color: #ececec;
+  background-color: var(--background-color-light);
 
   .top {
     display: flex;
@@ -19,7 +19,7 @@
   .middle {
     padding: 1rem;
     width: 100%;
-    
+
     .slider-wrap {
       transition: transform 300ms ease;
       width: calc(100vw - 2rem);
@@ -29,47 +29,72 @@
     }
   }
 
-  .bottom{
+  .bottom {
     padding: 0 1rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .dots-wrap{
-        display: flex;
-        gap: 5px;
+    .dots-wrap {
+      display: flex;
+      gap: 5px;
 
-        .dot{
-          transition: background-color 200ms ease;
+      .dot {
+        transition: background-color 200ms ease;
 
-            cursor: pointer;
-            display: block;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background-color: #aaaaaa;
-        }
-        .dot.active{
-            background-color: #222;
-        }
+        cursor: pointer;
+        display: block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: #aaaaaa;
+      }
+      .dot.active {
+        background-color: #222;
+      }
     }
-    .arrows-wrap{
-        display: flex;
-        gap: 15px;
-        .arrow-left{
-            transition: color 200ms ease;
-            color: grey;
-            transform: rotate(90deg);
-        }
-        .arrow-right{
-          transition: color 200ms ease;
-          color: grey;
-          transform: rotate(-90deg);
+    .arrows-wrap {
+      display: flex;
+      gap: 15px;
+      .arrow-left {
+        transition: color 200ms ease;
+        color: grey;
+        transform: rotate(90deg);
+      }
+      .arrow-right {
+        transition: color 200ms ease;
+        color: grey;
+        transform: rotate(-90deg);
+      }
+      .disabled {
+        color: #ddd;
+        cursor: auto;
+      }
+    }
+  }
+}
 
-        }
-        .disabled{
-          color: #ddd;
-          cursor:auto;
-        }
+@media (min-width: 480px) {}
+
+@media (min-width: 768px) {
+  .info-section {
+    .top{
+      text-align: center;
+  }
+    .bottom {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+@media (min-width: 1024px) {
+}
+@media (min-width: 1200px) {
+  .info-section {
+    .middle {
+      .slider-wrap {
+        width: 1000px;
+        margin: 0 auto;
+      }
     }
   }
 }

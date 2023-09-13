@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import './Cart.scss'
-import { CartContext } from '../../context/CartContext'
-import { NotificationContext } from '../../context/NotificationContext'
+import { CartContext } from '../../../context/CartContext'
+import { NotificationContext } from '../../../context/NotificationContext'
 
 
 

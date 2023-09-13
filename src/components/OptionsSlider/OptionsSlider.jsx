@@ -66,6 +66,10 @@ const OptionsSlider = () => {
 
         const speed = 1.2
 
+        if (sliderWidth < containerWidth) {  //Remove a opção de arrastar caso a largura da tela for maior que a largura do slider (maior que mobile), se remover, o container poderá ser movido para fora da tela.
+            setTranslatePercent(0)
+            return
+        }
 
         const newTranslatePercent = translatePercent + (movementX) * speed
 

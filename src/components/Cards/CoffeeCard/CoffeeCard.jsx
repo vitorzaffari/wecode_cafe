@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
-import AddBag from '../svg-components/AddBag'
-import FavoriteIcon from '../svg-components/FavoriteIcon'
+import AddBag from '../../svg-components/AddBag'
+import FavoriteIcon from '../../svg-components/FavoriteIcon'
 import './CoffeeCard.scss'
-import { CartContext } from '../../context/CartContext'
+import { CartContext } from '../../../context/CartContext'
 
 
 const CoffeeCard = ({ id, title, img, info, price, sale, displayMessage } ) => {
@@ -24,7 +24,7 @@ const CoffeeCard = ({ id, title, img, info, price, sale, displayMessage } ) => {
 
   return (
     <div className='coffee-card'>
-      <div className="top">
+      <div className="card-top">
         <img src={img} alt={title} />
         <button className='btn fav-icon' onClick={handleFavorite}>
           <FavoriteIcon width={24} height={24} isFavorite={isFavorite} />
@@ -33,7 +33,7 @@ const CoffeeCard = ({ id, title, img, info, price, sale, displayMessage } ) => {
           <AddBag fill='#0D98E6' />
         </button>
       </div>
-      <div className="bottom">
+      <div className="card-bottom">
         <h3 className='title'>{title}</h3>
         <p className='info'>{info}</p>
         <div className="prices">

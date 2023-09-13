@@ -3,7 +3,7 @@ import Footer from "./components/Footer/Footer"
 import HeroSlider from "./components/HeroSlider/HeroSlider"
 import InfoSection from "./components/InfoSection/InfoSection"
 import Navbar from "./components/Navbar/Navbar"
-import NotificationBox from "./components/NotificationBox/NotificationBox"
+import NotificationBox from "./components/Outros/NotificationBox/NotificationBox"
 import OptionsSlider from "./components/OptionsSlider/OptionsSlider"
 import './styles/main.css'
 function App() {

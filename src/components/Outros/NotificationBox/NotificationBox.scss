@@ -1,0 +1,39 @@
+.notification-box {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--bakcground-color-dark);
+  width: fit-content;
+  color: var(--text-color-light);
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 300;
+  border-radius: 10px;
+  display: none;
+  transition: opacity 800ms ease, height 300ms ease;
+  height: 0px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p{
+    padding: 1rem;
+  }
+}
+
+.notification-box.active {
+  height: 3rem;
+}
+
+
+
+@media (min-width: 480px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 1024px) {
+}
+@media (min-width: 1200px) {
+}

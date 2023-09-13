@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react'
-import CoffeeCard from '../CoffeeCard/CoffeeCard'
+import CoffeeCard from '../Cards/CoffeeCard/CoffeeCard'
 import './Favorites.scss'
 import { NotificationContext } from '../../context/NotificationContext'
 
@@ -65,6 +65,12 @@ const Favorites = () => {
 
     const sliderWidth = sliderRef.current.offsetWidth;
     const containerWidth = sliderRef.current.parentElement.offsetWidth;
+
+    if(sliderWidth < containerWidth) {    //Remove a opção de arrastar caso a largura da tela for maior que a largura do slider (maior que mobile), se remover, o container poderá ser movido para fora da tela.
+      setTranslatePercent(0)
+      return
+      
+    }
 
     const speed = 1.2
 

@@ -38,7 +38,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #fff;
+          color: var(--text-color-light);
           font-size: 0.7rem;
           width: 15px;
           height: 15px;
@@ -46,7 +46,7 @@
           bottom: -5px;
           right: -5px;
           border-radius: 50%;
-          background-color: #333;
+          background-color: var( --bakcground-color-dark);
         }
       }
     
