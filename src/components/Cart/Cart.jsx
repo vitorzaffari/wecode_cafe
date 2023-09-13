@@ -1,13 +1,26 @@
 import { useContext } from 'react'
 import './Cart.scss'
 import { CartContext } from '../../context/CartContext'
+import { NotificationContext } from '../../context/NotificationContext'
 
 
 
-const Cart = ({forwardedRef, isCartOpen}) => {
+const Cart = ({ forwardedRef, isCartOpen }) => {
 
-    const { cart } = useContext(CartContext)
+    const { cart, addToCart, removeFromCart, totalPrice } = useContext(CartContext)
+    const { displayMessage } = useContext(NotificationContext);
+
     console.log(cart)
+
+    function handleAddToCart(item) {
+        addToCart(item)
+        displayMessage('add', 'carrinho')
+    }
+    function handleRemoveFromCart(item) {
+        removeFromCart(item)
+        displayMessage('remove', 'carrinho')
+    }
+    
 
     return (
         <div className={`cart-container ${isCartOpen ? 'show' : ''}`} ref={forwardedRef}>
@@ -33,15 +46,15 @@ const Cart = ({forwardedRef, isCartOpen}) => {
                             <p>Preço total: <span className='final-price'>R${(item.price * item.quantity).toFixed(2)}</span></p>
                         </div>
                         <div className="cart-btns">
-                            <button className='btn add'>+</button>
-                            <button className='btn remove'>-</button>
+                            <button className='btn add' onClick={() => handleAddToCart(item)}>+</button>
+                            <button className='btn remove' id='cart' onClick={() => handleRemoveFromCart(item)}>-</button>
                         </div>
                     </div>
                 ))}
             </div>
             {cart.length > 0 &&
                 <div className="bottom">
-                    <h2>Preço final</h2>
+                    <h2>Preço final: R${(totalPrice).toFixed(2)}</h2>
                     <button className='btn'>Finalizar compra</button>
                 </div>
             }

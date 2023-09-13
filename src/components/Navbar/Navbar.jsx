@@ -21,9 +21,13 @@ const Navbar = () => {
 
   function handleMenu() {
 
-    isMenuOpen === true
-      ? menuRef.current.style.transform = `translateX(-100%)`
-      : menuRef.current.style.transform = `translateX(0%)`
+    if (isMenuOpen) {
+      menuRef.current.style.transform = `translateX(-100%)`
+    } else {
+      setIsCartOpen(false)
+      cartRef.current.style.maxHeight = '0px'
+      menuRef.current.style.transform = `translateX(0%)`
+    }
 
     setIsMenuOpen(prev => !prev)
   }
@@ -58,25 +62,31 @@ const Navbar = () => {
 
   useEffect(() => {
     function handleClickOutside(e) {
-      if (menuRef.current && (!menuRef.current.contains(e.target) && e.target.id !== 'menu')) {
-        setIsMenuOpen(false)
-        menuRef.current.style.transform = `translateX(-100%)`
-
+      if (isMenuOpen) {
+        if (menuRef.current && (!menuRef.current.contains(e.target) && e.target.id !== 'menu')) {
+          setIsMenuOpen(false)
+          menuRef.current.style.transform = `translateX(-100%)`
+        }
+      } else if (isCartOpen) {
+        if (cartRef.current && (!cartRef.current.contains(e.target) && e.target.id !== 'cart')) {
+          setIsCartOpen(false)
+          cartRef.current.style.maxHeight = '0px'
+          console.log(e.target)
+        }
       }
     }
 
-    if (isMenuOpen) {
+    if (isMenuOpen || isCartOpen) {
       document.addEventListener('click', handleClickOutside)
     } else {
       document.removeEventListener('click', handleClickOutside)
-
     }
 
     return () => {
       document.removeEventListener('click', handleClickOutside)
     }
 
-  }, [isMenuOpen])
+  }, [isMenuOpen, isCartOpen])
 
   useEffect(() => {
     if (isCartOpen) {
@@ -101,7 +111,7 @@ const Navbar = () => {
           <Avatar fill={color} />
           <button className="btn bag-wrap" onClick={handleCart}>
             <Bag fill={color} />
-            <span className='bag-qty'>{cart.length}</span>
+            <span className='bag-qty' id='cart'>{cart.length}</span>
           </button>
         </div>
         <Menu forwardedRef={menuRef} handleMenu={handleMenu} />

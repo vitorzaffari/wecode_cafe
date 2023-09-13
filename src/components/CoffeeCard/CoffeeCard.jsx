@@ -29,7 +29,7 @@ const CoffeeCard = ({ id, title, img, info, price, sale, displayMessage } ) => {
         <button className='btn fav-icon' onClick={handleFavorite}>
           <FavoriteIcon width={24} height={24} isFavorite={isFavorite} />
         </button>
-        <button className='btn add-bag' onClick={handleAddToCard}>
+        <button className='btn add-bag' id='cart' onClick={handleAddToCard}>
           <AddBag fill='#0D98E6' />
         </button>
       </div>
