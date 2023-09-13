@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
-import './OptionsSlider.scss'
-
-const OptionsSlider = () => {
+import './Categorias.scss'
+import { categorias } from '../../data/data'
+const Categorias = () => {
     const [isDragging, setIsDragging] = useState(false)
     const [startPosition, setStartPosition] = useState({ x: 0, y: 0 })
     const [translatePercent, setTranslatePercent] = useState(0)
@@ -101,37 +101,6 @@ const OptionsSlider = () => {
     }, [translatePercent])
 
 
-
-    const data = [
-        {
-            id: 0,
-            title: 'Especiais',
-            img: '/images/especiais.png',
-            highlight: false
-        },
-        {
-            id: 1,
-            title: 'Tradicionais',
-            img: '/images/tradicionais.png',
-            highlight: false
-
-        }, {
-            id: 2,
-            title: 'Kits',
-            img: '/images/kits.png',
-            highlight: false
-
-        }, {
-            id: 3,
-            title: 'Weecoffee Club+',
-            img: '/images/wecoffee-club.png',
-            highlight: true
-
-        },
-    ]
-
-
-
     return (
         <div className='options'
             onMouseDown={handlePress} onTouchStart={handlePress}
@@ -139,7 +108,7 @@ const OptionsSlider = () => {
             onMouseUp={handleUp} onTouchEnd={handleUp}>
             <div className="options-wrap" ref={sliderRef}>
 
-                {data.map(item => (
+                {categorias.map(item => (
                     <div className={`option`} key={item.id} >
                         <img src={item.img} alt={item.title} />
                         <h3 className={` ${item.highlight ? 'highlight' : ''}`}>{item.title}</h3>
@@ -150,4 +119,4 @@ const OptionsSlider = () => {
     )
 }
 
-export default OptionsSlider
+export default Categorias

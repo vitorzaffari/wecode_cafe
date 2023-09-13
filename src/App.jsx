@@ -1,24 +1,24 @@
-import Favorites from "./components/Favorites/Favorites"
-import Footer from "./components/Footer/Footer"
-import HeroSlider from "./components/HeroSlider/HeroSlider"
-import InfoSection from "./components/InfoSection/InfoSection"
-import Navbar from "./components/Navbar/Navbar"
-import NotificationBox from "./components/Outros/NotificationBox/NotificationBox"
-import OptionsSlider from "./components/OptionsSlider/OptionsSlider"
 import './styles/main.css'
+import Footer from "./components/Footer/Footer"
+import Navbar from "./components/Navbar/Navbar"
+import FavoritosDaCasa from "./components/FavoritosDaCasa/FavoritosDaCasa"
+import ConhecaMais from "./components/ConhecaMais/ConhecaMais"
+import Categorias from "./components/Categorias/Categorias"
+import Banner from "./components/Banner/Banner"
+import Notificacao from "./components/Outros/Notificacao/Notificacao"
 function App() {
 
   return (
     <div className="app">
       <Navbar />
-      <HeroSlider />
+      <Banner />
       <main>
-        <OptionsSlider />
-        <Favorites />
-        <InfoSection />
+        <Categorias />
+        <FavoritosDaCasa />
+        <ConhecaMais />
       </main>
       <Footer />
-      <NotificationBox />
+      <Notificacao />
     </div>
   )
 }

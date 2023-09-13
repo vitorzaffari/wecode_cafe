@@ -1,8 +1,8 @@
 import { useContext, useEffect, useRef, useState } from 'react'
-import './NotificationBox.scss'
+import './Notificacao.scss'
 import { NotificationContext } from '../../../context/NotificationContext'
 
-const NotificationBox = () => {
+const Notificacao = () => {
 
   const [isActive, setIsActive] = useState(false)
   const { message } = useContext(NotificationContext)
@@ -28,4 +28,4 @@ const NotificationBox = () => {
   )
 }
 
-export default NotificationBox
+export default Notificacao

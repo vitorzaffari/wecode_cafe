@@ -1,22 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
-import './HeroSlider.scss'
+import './Banner.scss'
+import useScroll from '../../utils/useScroll'
 
-const HeroSlider = () => {
+const Banner = () => {
+    const { disableScroll, enableScroll } = useScroll()
     const [isDragging, setIsDragging] = useState(false)
     const [startPosition, setStartPosition] = useState({ x: 0, y: 0 })
     const [currentSlide, setCurrentSlide] = useState(0)
     const [clientX, setClientX] = useState(0)
     const [fixedPosition, setFixedPosition] = useState({ x: 0, y: 0 })
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  
     const sliderRef = useRef()
 
     function handlePress(e) {
@@ -55,7 +48,6 @@ const HeroSlider = () => {
     function handleMove(e) {
         if (!isDragging) return;
         e.preventDefault()
-        // disableScroll()
 
         let clientX;
         let clientY;
@@ -89,8 +81,6 @@ const HeroSlider = () => {
 
 
         const newPositionX = clientX
-        // const newPositionY = clientY
-        // const movementX = startPosition.x - newPositionX;
 
 
         let distance = (dragDistance / sliderRef.current.clientWidth * 100)
@@ -132,32 +122,6 @@ const HeroSlider = () => {
         sliderRef.current.style.transform = `translateX(-${currentSlide * 100}%)`;
     }, [startPosition, currentSlide])
 
-    function disableScroll() {
-        // Calculate the current scroll position
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-
-        // Save the current scroll position as data attributes on the body element
-        document.body.setAttribute('data-scroll-top', scrollTop);
-        document.body.setAttribute('data-scroll-left', scrollLeft);
-
-        // Set the body to have hidden overflow to prevent scrolling
-        document.body.style.overflow = 'hidden';
-    }
-    function enableScroll() {
-        // Retrieve the saved scroll position
-        if (document.body.style.overflow = '') {
-
-            const scrollTop = parseFloat(document.body.getAttribute('data-scroll-top')) || 0;
-            const scrollLeft = parseFloat(document.body.getAttribute('data-scroll-left')) || 0;
-
-            // Restore the body's overflow property and scroll to the saved position
-            document.body.style.overflow = '';
-            window.scrollTo(scrollLeft, scrollTop);
-        }
-    }
-
-
     return (
         <div className='hero-slider'>
             <div ref={sliderRef} className="hero-container"
@@ -185,4 +149,4 @@ const HeroSlider = () => {
     )
 }
 
-export default HeroSlider
+export default Banner

@@ -1,9 +1,10 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import CoffeeCard from '../Cards/CoffeeCard/CoffeeCard'
-import './Favorites.scss'
+import './FavoritosDaCasa.scss'
 import { NotificationContext } from '../../context/NotificationContext'
+import { favoritos } from '../../data/data'
 
-const Favorites = () => {
+const FavoritosDaCasa = () => {
   const [isDragging, setIsDragging] = useState(false)
   const [startPosition, setStartPosition] = useState({ x: 0, y: 0 })
   const [translatePercent, setTranslatePercent] = useState(0)
@@ -106,27 +107,6 @@ const Favorites = () => {
 
 
 
-
-  const data = [
-    {
-      id: 0,
-      img: '/images/cafe-dev.png',
-      title: 'Café Dev - 500ml',
-      info: 'Rapadura, Floral, papaia, cítrico',
-      price: 15.90,
-      sale: 10,
-    },
-    {
-      id: 1,
-      img: '/images/cafe-designer.png',
-      title: 'Café Designer - 500ml',
-      info: 'Doce de leite, chocolate e nozes',
-      price: 15.90,
-      sale: 0,
-    }
-  ]
-
-
   return (
     <div className='favorites' id='favorites'>
       <div id="fav-placeholder"></div>
@@ -139,7 +119,7 @@ const Favorites = () => {
         onMouseUp={handleUp} onTouchEnd={handleUp}>
         <div className="slider-wrap" ref={sliderRef}>
 
-          {data.map(item => (
+          {favoritos.map(item => (
             <CoffeeCard key={item.id} {...item} displayMessage={displayMessage} />
           ))}
         </div>
@@ -149,4 +129,4 @@ const Favorites = () => {
   )
 }
 
-export default Favorites
+export default FavoritosDaCasa

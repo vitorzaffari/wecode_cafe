@@ -1,6 +1,6 @@
-import './NewsCard.scss'
+import './ArtigoCard.scss'
 
-const NewsCard = ({ img, title, info }) => {
+const ArtigoCard = ({ img, title, info }) => {
 
   return (
     <div className='news-card'>
@@ -16,4 +16,4 @@ const NewsCard = ({ img, title, info }) => {
   )
 }
 
-export default NewsCard
+export default ArtigoCard

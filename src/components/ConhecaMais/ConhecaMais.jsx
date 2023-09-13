@@ -1,8 +1,10 @@
-import NewsCard from '../Cards/NewsCard/NewsCard'
-import './InfoSection.scss'
+import NewsCard from '../Cards/ArtigoCard/ArtigoCard'
+import './ConhecaMais.scss'
 import Arrow from '../svg-components/Arrow'
 import { useRef, useState } from 'react'
-const InfoSection = () => {
+import { artigos } from '../../data/data'
+
+const ConhecaMais = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const sliderRef = useRef()
 
@@ -18,32 +20,6 @@ const InfoSection = () => {
 
   }
 
-  const data = [
-    {
-      id: 0,
-      img: '/images/noticia1.png',
-      title: 'Café corta o efeito da creatina? Entenda como tomar!',
-      info: 'Uma dúvida recorrente das pessoas que treinam e/ou fazem musculação é: “Será que o café corta o efeito da...',
-    },
-    {
-      id: 1,
-      img: '/images/noticia2.png',
-      title: 'Cardápio de cafeteria: Saiba como montar e o que oferecer!',
-      info: 'Abrir uma cafeteria é uma ótima oportunidade para aproveitar o alto potencial de lucratividade desse...',
-    },
-    {
-      id: 2,
-      img: '/images/noticia3.png',
-      title: 'Como fazer pudim de café com ou sem forno: Aprendam aqui!',
-      info: 'Além de ser o queridinho do brasileiro no dia a dia, o café um ingrediente muito versátil para diversas receitas doces...',
-    },
-    {
-      id: 3,
-      img: '/images/noticia4.png',
-      title: 'Café Arábica: saiba o que é e quais as diferenças do grão',
-      info: 'O Café Arábica é uma das duas principais espécies de café cultivadas comercialmente em todo o mundo, sendo a outra ...',
-    },
-  ]
 
 
 
@@ -56,7 +32,7 @@ const InfoSection = () => {
       <div className="middle">
         <div className="slider-wrap" ref={sliderRef}>
 
-          {data.map(item => (
+          {artigos.map(item => (
             <NewsCard key={item.id} {...item} />
           ))}
         </div>
@@ -80,4 +56,4 @@ const InfoSection = () => {
   )
 }
 
-export default InfoSection
+export default ConhecaMais
