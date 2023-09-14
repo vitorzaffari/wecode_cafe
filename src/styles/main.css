@@ -19,8 +19,7 @@ body {
 
     --text-color-light: #fff;
     --text-color-dark: #111;
-    --text-color2: #222;
-    --bakcground-color-dark: #141414;
+    --background-color-dark: #141414;
     --background-color-white: #fff;
     --background-color-light: #ececec;
     --background-color-blue: #053766;
@@ -31,6 +30,12 @@ body {
     overflow-x: hidden;
     /* não funciona em mobile */
 }
+
+:focus-visible{
+    outline: 2px solid currentColor;
+    outline-offset: 5px;
+}
+
 
 .app {
     position: relative;
@@ -49,7 +54,7 @@ body {
     cursor: pointer;
 }
 
-.btn {
+button {
     border: none;
     background-color: transparent;
     /* border: 1px solid red; */

@@ -1,16 +1,15 @@
 .options {
-  background-color: var(--bakcground-color-dark);
+  width: 100vw;
+  background-color: var(--background-color-dark);
   color: var(--text-color-light);
   height: 300px;
   display: grid;
   place-content: center;
   .options-wrap {
-    // border: 1px solid red;
     margin: 0 auto;
     width: fit-content;
     display: flex;
     padding: 2rem;
-    // height: 100%;
     overflow: hidden;
     gap: 1.5rem;
 
@@ -42,7 +41,7 @@
       h3 {
         transition: color 200ms ease;
 
-        color: grey;
+        color: #808080;
         font-weight: 600;
         text-align: center;
       }

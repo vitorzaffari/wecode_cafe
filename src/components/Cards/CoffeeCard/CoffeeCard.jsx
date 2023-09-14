@@ -26,10 +26,10 @@ const CoffeeCard = ({ id, title, img, info, price, sale, displayMessage } ) => {
     <div className='coffee-card'>
       <div className="card-top">
         <img src={img} alt={title} />
-        <button className='btn fav-icon' onClick={handleFavorite}>
+        <button title='Adicionar aos favoritos' className='fav-icon' onClick={handleFavorite}>
           <FavoriteIcon width={24} height={24} isFavorite={isFavorite} />
         </button>
-        <button className='btn add-bag' id='cart' onClick={handleAddToCard}>
+        <button title='Adicionar ao carrinho' className='add-bag' id='cart' onClick={handleAddToCard}>
           <AddBag fill='#0D98E6' />
         </button>
       </div>

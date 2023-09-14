@@ -44,10 +44,10 @@ const ConhecaMais = () => {
           <span className={`dot ${currentSlide === 1 ? 'active' : ''}`} onClick={() => handleClick(1)}></span>
         </div>
         <div className="arrows-wrap">
-          <button className={` btn arrow-left ${currentSlide === 0 ? 'disabled' : ''}`} onClick={() => handleClick(0)}>
+          <button className={` arrow-left ${currentSlide === 0 ? 'disabled' : ''}`} onClick={() => handleClick(0)}>
             <Arrow width={16} height={16}  />
           </button>
-          <button className={` btn arrow-right ${currentSlide === 1 ? 'disabled' : ''}`} onClick={() => handleClick(1)}>
+          <button className={`arrow-right ${currentSlide === 1 ? 'disabled' : ''}`} onClick={() => handleClick(1)}>
             <Arrow width={16} height={16}  />
           </button>
         </div>

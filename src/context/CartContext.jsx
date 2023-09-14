@@ -14,7 +14,6 @@ export const CartProvider = ({ children }) => {
             const updatedCart = [...cart]
             updatedCart[itemIndex]. quantity += 1;
             setCart(updatedCart)
-            console.log(cart)
         } else {
             const updatedCart = [...cart, { ...product, quantity: 1}]
             setCart(updatedCart)
@@ -32,7 +31,6 @@ export const CartProvider = ({ children }) => {
 
                 setCart(updatedCart)
             }
-            console.log('removed: ', cart)
         } 
     }
 

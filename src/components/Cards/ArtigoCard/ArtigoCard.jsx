@@ -5,7 +5,7 @@ const ArtigoCard = ({ img, title, info }) => {
   return (
     <div className='news-card'>
       <div className="img-wrap">
-        <img src={img} alt={title} />
+        <img src={img} alt={title} loading='lazy'/>
       </div>
       <div className="card-info">
         <h3 className='card-title'>{title}</h3>

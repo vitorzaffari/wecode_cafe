@@ -5,12 +5,10 @@ import { NotificationContext } from '../../../context/NotificationContext'
 
 
 
-const Cart = ({ forwardedRef, isCartOpen }) => {
+const Cart = ({ forwardedRef, isCartOpen, handleCart }) => {
 
     const { cart, addToCart, removeFromCart, totalPrice } = useContext(CartContext)
     const { displayMessage } = useContext(NotificationContext);
-
-    console.log(cart)
 
     function handleAddToCart(item) {
         addToCart(item)
@@ -46,8 +44,8 @@ const Cart = ({ forwardedRef, isCartOpen }) => {
                             <p>Preço total: <span className='final-price'>R${(item.price * item.quantity).toFixed(2)}</span></p>
                         </div>
                         <div className="cart-btns">
-                            <button className='btn add' onClick={() => handleAddToCart(item)}>+</button>
-                            <button className='btn remove' id='cart' onClick={() => handleRemoveFromCart(item)}>-</button>
+                            <button  onClick={() => handleAddToCart(item)}>+</button>
+                            <button  id='cart' onClick={() => handleRemoveFromCart(item)}>-</button>
                         </div>
                     </div>
                 ))}
@@ -55,9 +53,10 @@ const Cart = ({ forwardedRef, isCartOpen }) => {
             {cart.length > 0 &&
                 <div className="bottom">
                     <h2>Preço final: R${(totalPrice).toFixed(2)}</h2>
-                    <button className='btn'>Finalizar compra</button>
+                    <button>Finalizar compra</button>
                 </div>
             }
+            <button className='close-cart' onClick={handleCart}>Fechar carrinho</button>
         </div>
     )
 }

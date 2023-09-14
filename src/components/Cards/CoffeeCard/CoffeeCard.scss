@@ -22,13 +22,19 @@
       position: absolute;
       bottom: 20px;
       right: 20px;
-      background-color: var(--bakcground-color-dark);
+      background-color: var(--background-color-dark);
     }
-
+    .add-bag:focus{
+      color: #fff;
+      background-color: var(--background-color-white);   
+     }
     .fav-icon {
       position: absolute;
       top: 20px;
       left: 20px;
+    }
+    .fav-icon:focus{
+      color: #fff;
     }
   }
 

@@ -4,10 +4,10 @@ import Search from '../svg-components/Search'
 import WecodeLogo from '../svg-components/WecodeLogo'
 import Avatar from '../svg-components/Avatar'
 import Bag from '../svg-components/Bag'
-import { useContext, useEffect, useRef, useState } from 'react'
 import Menu from '../Outros/Menu/Menu'
-import { CartContext } from '../../context/CartContext'
 import Cart from '../Outros/Cart/Cart'
+import { useContext, useEffect, useRef, useState } from 'react'
+import { CartContext } from '../../context/CartContext'
 
 const Navbar = () => {
   const { cart } = useContext(CartContext)
@@ -19,6 +19,8 @@ const Navbar = () => {
   const menuRef = useRef()
   const cartRef = useRef()
 
+
+
   function handleMenu() {
 
     if (isMenuOpen) {
@@ -29,17 +31,24 @@ const Navbar = () => {
       menuRef.current.style.transform = `translateX(0%)`
     }
 
+    menuRef.current.focus()
     setIsMenuOpen(prev => !prev)
   }
-  function handleCart() {
+
+  function handleCart(e) {
+    console.log(e.target)
     const cartHeight = cartRef.current.scrollHeight;
+    console.log(cartHeight)
     if (isCartOpen) {
+      setIsCartOpen((prevIsCartOpen) => !prevIsCartOpen)
       cartRef.current.style.maxHeight = '0px'
     } else {
       cartRef.current.style.maxHeight = `${cartHeight}px`
+      setIsCartOpen((prevIsCartOpen) => !prevIsCartOpen)
     }
-    setIsCartOpen(!isCartOpen)
   }
+
+
 
   useEffect(() => {
 
@@ -66,12 +75,12 @@ const Navbar = () => {
         if (menuRef.current && (!menuRef.current.contains(e.target) && e.target.id !== 'menu')) {
           setIsMenuOpen(false)
           menuRef.current.style.transform = `translateX(-100%)`
+
         }
       } else if (isCartOpen) {
         if (cartRef.current && (!cartRef.current.contains(e.target) && e.target.id !== 'cart')) {
           setIsCartOpen(false)
           cartRef.current.style.maxHeight = '0px'
-          console.log(e.target)
         }
       }
     }
@@ -92,30 +101,35 @@ const Navbar = () => {
     if (isCartOpen) {
       const cartHeight = cartRef.current.scrollHeight;
       cartRef.current.style.maxHeight = `${cartHeight}px`;
+
     }
-  }, [cart])
+  }, [cart, isCartOpen])
 
   return (
     <>
-      <nav ref={navRef} className='navbar' >
+      <nav ref={navRef} className='navbar' id='navbar'>
+        <a href="#hero" className="skip-navigation link">Pular navegação</a>
         <div className="left">
-          <button className='btn' onClick={handleMenu}>
+          <button onClick={handleMenu} id='menu'>
             <MenuIcon fill={color} />
           </button>
+          <Menu forwardedRef={menuRef} isMenuOpen={isMenuOpen} handleMenu={handleMenu} />
           <Search fill={color} />
         </div>
         <div className="middle">
-          <WecodeLogo fill={color} />
+          <a href="#" className='link logo'>
+            <WecodeLogo fill={color} />
+          </a>
         </div>
         <div className="right">
           <Avatar fill={color} />
-          <button className="btn bag-wrap" onClick={handleCart}>
+          <button className="bag-wrap" id='cart' onClick={handleCart} >
             <Bag fill={color} />
             <span className='bag-qty' id='cart'>{cart.length}</span>
           </button>
         </div>
-        <Menu forwardedRef={menuRef} handleMenu={handleMenu} />
-        <Cart forwardedRef={cartRef} isCartOpen={isCartOpen} />
+
+        <Cart forwardedRef={cartRef} isCartOpen={isCartOpen} handleCart={handleCart} />
       </nav>
     </>
   )

@@ -11,9 +11,12 @@ const Footer = () => {
     return (
         <footer className='footer'>
             <div className="top">
-                <WecodeLogo
-                    width={170}
-                    height={50} />
+                <a href="#hero" className='link'>
+
+                    <WecodeLogo
+                        width={170}
+                        height={50} />
+                </a>
                 <p>©2023 Wecode Tecnologia para e-commerce ltda. Todos os direitos reservados.</p>
             </div>
             <div className="bottom">
@@ -31,30 +34,31 @@ const Footer = () => {
                 <div className="sobre-wrap">
                     <div className="contact-wrap">
                         <h3>Sobre a empresa</h3>
-                        <a href="#" className='link'>Quem somos</a>
-                        <a href="#" className='link'>Fale conosco</a>
-                        <a href="#" className='link'>Produção Nacional de Café</a>
+                        <a href="#hero" className='link'>Quem somos</a>
+                        <a href="#hero" className='link'>Fale conosco</a>
+                        <a href="#hero" className='link'>Produção Nacional de Café</a>
                     </div>
                 </div>
-                    <div className="contact-wrap">
-                        <h3>E-mail</h3>
-                        <a href="mailto:ola@wecode.digital" className='link'>ola@wecode.digital</a>
-                    </div>
-                    <div className="contact-wrap">
-                        <h3>Telefone</h3>
-                        <p>+55 (54) 3028-9452</p>
-                    </div>
-                    <div className="contact-wrap">
-                        <h3>Endereço</h3>
-                        <p>Rua Independência, 2432 - sala 418
-                            Caxias do Sul, RS - 95.082-380</p>
-                    </div>
+                <div className="contact-wrap">
+                    <h3>E-mail</h3>
+                    <a href="mailto:ola@wecode.digital" className='link'>ola@wecode.digital</a>
+                </div>
+                <div className="contact-wrap">
+                    <h3>Telefone</h3>
+                    <p>+55 (54) 3028-9452</p>
+                </div>
+                <div className="contact-wrap">
+                    <h3>Endereço</h3>
+                    <p>Rua Independência, 2432 - sala 418
+                        Caxias do Sul, RS - 95.082-380</p>
+                </div>
 
                 <div className="contact-wrap">
                     <h3>Políticas</h3>
-                    <a href="#" className='link'>Política de Privacidade</a><a href="#" className='link'>Termos de Uso</a><a href="#" className='link'>Política de Entrega</a><a href="#" className='link'>Política de Cupom e Descontos</a>
+                    <a href="#hero" className='link'>Política de Privacidade</a><a href="#hero" className='link'>Termos de Uso</a><a href="#hero" className='link'>Política de Entrega</a><a href="#hero" className='link'>Política de Cupom e Descontos</a>
                 </div>
             </div>
+            <a href="#navbar" className="link goto-navbar" onClick={() => window.scrollTo(0, 0)}>Voltar ao topo</a>
         </footer>
     )
 }

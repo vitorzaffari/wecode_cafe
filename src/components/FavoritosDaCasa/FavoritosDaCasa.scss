@@ -5,7 +5,8 @@
 
 .favorites {
   margin-bottom: 1rem;
-  padding: 1rem;
+  width: 100vw;
+padding: 1rem;
   .top {
     display: flex;
     flex-direction: column;
@@ -22,6 +23,7 @@
 
   .bottom {
     margin-top: 1rem;
+    overflow-x: hidden;
     .slider-wrap {
       display: flex;
       gap: 1rem;

@@ -1,9 +1,10 @@
 .notification-box {
+  white-space: nowrap;
   position: fixed;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: var(--bakcground-color-dark);
+  background-color: var(--background-color-dark);
   width: fit-content;
   color: var(--text-color-light);
   text-align: center;

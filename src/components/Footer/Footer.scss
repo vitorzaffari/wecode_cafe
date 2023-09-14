@@ -1,4 +1,22 @@
+.goto-navbar {
+  position: absolute;
+  color: #fff;
+  background-color: black;
+  padding: 10px;
+  bottom: 10px;
+  left: 0;
+  font-size: 0.7rem;
+  border-radius: 0 5px 5px 0;
+  transition: transform 300ms ease;
+  transform: translateX(-110%);
+}
+.goto-navbar:focus-visible{
+  outline: none;
+  transform: translateX(0%);
+}
+
 .footer {
+  overflow: hidden;
   background-color: var(--background-color-blue);
   color: var(--text-color-light);
   padding: 1rem;
@@ -50,7 +68,6 @@
     }
   }
 }
-
 
 @media (min-width: 768px) {
   .footer {
