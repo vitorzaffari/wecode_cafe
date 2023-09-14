@@ -14,3 +14,5 @@ Responsividade em todos os tamanhos de tela, especialmente em dispositivos móve
 
 Problemas conhecidos:
 - Ocasionalmente, pode ocorrer um pequeno bug em alguns sliders quando a navegação por teclado é ativada. Isso é causado pelo foco no elemento, que move o slider inesperadamente.
+
+### Live site https://wecode-cafe-mobile.vercel.app/
