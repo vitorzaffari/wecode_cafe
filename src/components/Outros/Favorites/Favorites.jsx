@@ -8,11 +8,15 @@ const Favorites = ({ forwardedRef, isFavOpen, handleFav }) => {
   const { favorites, addToFavorites } = useContext(NavContext)
   const { displayMessage } = useContext(NotificationContext)
 
+
   function handleAdd(item) {
     addToFavorites(item)
     displayMessage('remove', 'favorites')
   }
+
+  
   return (
+
     <div ref={forwardedRef} className={`nav-favorites ${isFavOpen ? 'show' : ''}`}>
       <h2>Seus favoritos</h2>
       <div className="fav-wrap">

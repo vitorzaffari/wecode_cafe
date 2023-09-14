@@ -31,7 +31,7 @@ const HeroSlider = () => {
             e.preventDefault();
         }
 
-        sliderRef.current.style.transition = 'none';
+        sliderRef.current.style.transition = 'none'; //
     }
 
 
@@ -90,7 +90,7 @@ const HeroSlider = () => {
     }
 
 
-    function handleUp() {
+    function handleRelease() {
         if (!isDragging) return;
         setIsDragging(false);
 
@@ -125,7 +125,7 @@ const HeroSlider = () => {
             <div ref={sliderRef} className="hero-container"
                 onMouseDown={handlePress} onTouchStart={handlePress}
                 onMouseMove={handleMove} onTouchMove={handleMove}
-                onMouseUp={handleUp} onTouchEnd={handleUp}
+                onMouseUp={handleRelease} onTouchEnd={handleRelease}
             >
                 <div className='img-wrap'>
                     <img src="/images/Banner01.png" alt="Lançamento café dev" />

@@ -9,9 +9,7 @@ const FavoritosDaCasa = () => {
   const [translatePercent, setTranslatePercent] = useState(0)
   const { displayMessage } = useContext(NotificationContext);
   const sliderRef = useRef()
-  const { handleMove, handlePress, handleUp } = useDrag(sliderRef, translatePercent, setTranslatePercent)
-
-
+  const { handleMove, handlePress, handleRelese } = useDrag(sliderRef, translatePercent, setTranslatePercent) // essas funções são responsáveis pelo scroll
 
   useEffect(() => {
     sliderRef.current.style.transform = `translateX(${-translatePercent}px)`
@@ -28,7 +26,7 @@ const FavoritosDaCasa = () => {
       </div>
       <div className="bottom" onMouseDown={handlePress} onTouchStart={handlePress}
         onMouseMove={handleMove} onTouchMove={handleMove}
-        onMouseUp={handleUp} onTouchEnd={handleUp}>
+        onMouseUp={handleRelese} onTouchEnd={handleRelese}>
         <div className="slider-wrap" ref={sliderRef}>
 
           {favoritos.map(item => (

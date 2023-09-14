@@ -11,6 +11,7 @@ export default function useDrag(ref, translatePercent, setTranslatePercent ) {
     function handlePress(e) {
         e.preventDefault()
         setIsDragging(true)
+        
         if (e.type === 'mousedown') {
             setStartPosition(({
                 y: e.clientY,
@@ -33,7 +34,7 @@ export default function useDrag(ref, translatePercent, setTranslatePercent ) {
         }
 
 
-        ref.current.style.transition = 'none';
+        ref.current.style.transition = 'none'; //
 
     }
 
@@ -86,15 +87,13 @@ export default function useDrag(ref, translatePercent, setTranslatePercent ) {
 
         setStartPosition(({ y: newPositionY, x: newPositionX }))
 
-        ref.current.style.transition = '300ms ease-out';
+        ref.current.style.transition = '300ms ease-out'; //
     }
 
-    function handleUp() {
+    function handleRelese() {
         setIsDragging(false)
-
-
     }
     
 
-    return  {handleMove, handlePress, handleUp}
+    return  {handleMove, handlePress, handleRelese}
 }

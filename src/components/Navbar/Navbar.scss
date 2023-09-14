@@ -12,23 +12,6 @@
   background-color: transparent;
   transition: background-color 400ms ease;
 
-
-  .skip-navigation{
-    position: absolute;
-    color: #fff;
-    background-color: black;
-    padding: 10px;
-    top: 0;
-    left: 4px;
-    font-size: .7rem;
-    border-radius: 0 0 5px 5px;
-    transition: transform 300ms ease;
-    transform: translateY(-100%);
-  }
-  .skip-navigation:focus{
-    transform: translate(0);
-    outline: none;
-  }
   .left {
     display: flex;
     align-items: center;
@@ -51,37 +34,52 @@
         width: 20px;
         height: 20px;
       }
-      .bag-qty{
+      .bag-qty {
         user-select: none;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: var(--text-color-light);
-          font-size: 0.7rem;
-          width: 15px;
-          height: 15px;
-          position: absolute;
-          bottom: -5px;
-          right: -5px;
-          border-radius: 50%;
-          background-color: var( --background-color-dark);
-        }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-color-light);
+        font-size: 0.7rem;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        bottom: -5px;
+        right: -5px;
+        border-radius: 50%;
+        background-color: var(--background-color-dark);
       }
-    
+    }
+  }
+  .skip-navigation {
+    position: absolute;
+    color: var(--text-color-light);
+    background-color: var(--background-color-dark);
+    padding: 10px;
+    top: 0;
+    left: 4px;
+    font-size: 0.7rem;
+    border-radius: 0 0 5px 5px;
+    transition: transform 300ms ease;
+    transform: translateY(-100%);
+  }
+  .skip-navigation:focus {
+    transform: translate(0);
+    outline: none;
   }
 }
 
-.navbar button:focus-visible, .navbar .logo:focus-visible{
+.navbar button:focus-visible,
+.navbar .logo:focus-visible {
   outline: 2px solid rgb(57, 132, 156);
 }
 
-
 @media (min-width: 768px) {
-  .navbar{
+  .navbar {
     padding: 0.8rem 4rem;
-    .left, .right{
+    .left,
+    .right {
       gap: 2rem;
     }
-    }
+  }
 }
-

@@ -10,7 +10,7 @@ Responsividade em todos os tamanhos de tela, especialmente em dispositivos móve
 Áreas que precisam de atenção:
 - Refatoração de algumas funcionalidades. O componente Navbar se tornou excessivamente grande e pode ser aprimorado.
 - Adição da funcionalidade de busca para melhorar a experiência do usuário.
-
+- Testar a adicionar ARIA-labels.
 
 Problemas conhecidos:
 - Ocasionalmente, pode ocorrer um pequeno bug em alguns sliders quando a navegação por teclado é ativada. Isso é causado pelo foco no elemento, que move o slider inesperadamente.

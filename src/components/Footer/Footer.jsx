@@ -12,7 +12,6 @@ const Footer = () => {
         <footer className='footer'>
             <div className="top">
                 <a href="#hero" className='link'>
-
                     <WecodeLogo
                         width={170}
                         height={50} />

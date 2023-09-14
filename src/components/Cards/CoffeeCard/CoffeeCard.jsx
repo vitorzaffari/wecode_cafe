@@ -8,30 +8,29 @@ import { NavContext } from '../../../context/NavContext'
 const CoffeeCard = ({ id, title, img, info, price, sale, displayMessage }) => {
   const [isFavorite, setIsFavorite] = useState(false)
   const { addToCart, addToFavorites, favorites } = useContext(NavContext)
+
+
   function handleFavorite() {
     addToFavorites({ id, title, img, info, price })
-
-
 
     isFavorite
       ? displayMessage('remove', 'favorite')
       : displayMessage('add', 'favorite')
     setIsFavorite(!isFavorite)
-
   }
 
-  function handleAddToCard() {
 
+  function handleAddToCard() {
     addToCart({ id, title, img, price })
     displayMessage('add', 'carrinho')
   }
 
-  useEffect(() => {
-
+  useEffect(() => { //remove o preenchimento do icone de favorito caso seja removido pelo tab de favoritos
     const index = favorites.findIndex(item => item.id === id)
     index === -1 ? setIsFavorite(false) : ''
-
   }, [favorites])
+
+
   return (
     <div className='coffee-card'>
       <div className="card-top">

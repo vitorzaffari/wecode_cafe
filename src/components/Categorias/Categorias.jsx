@@ -9,7 +9,7 @@ const Categorias = () => {
 
     const sliderRef = useRef()
     const [translatePercent, setTranslatePercent] = useState(0)
-    const { handleMove, handlePress, handleUp } = useDrag(sliderRef, translatePercent, setTranslatePercent)
+    const { handleMove, handlePress, handleRelese } = useDrag(sliderRef, translatePercent, setTranslatePercent) // essas funções são responsáveis pelo scroll
 
     useEffect(() => {
         sliderRef.current.style.transform = `translateX(${-translatePercent}px)`
@@ -20,7 +20,7 @@ const Categorias = () => {
         <div className='options'
             onMouseDown={handlePress} onTouchStart={handlePress}
             onMouseMove={handleMove} onTouchMove={handleMove}
-            onMouseUp={handleUp} onTouchEnd={handleUp}>
+            onMouseUp={handleRelese} onTouchEnd={handleRelese}>
             <div className="options-wrap" ref={sliderRef}>
 
                 {categorias.map(item => (

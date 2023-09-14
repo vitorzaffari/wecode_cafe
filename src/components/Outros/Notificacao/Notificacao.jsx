@@ -16,7 +16,7 @@ const Notificacao = () => {
         if (divRef.current) {
           setIsActive(false)
         }
-      }, 3000);
+      }, 3500);
       return () => {
         clearTimeout(timeoutId);
       };

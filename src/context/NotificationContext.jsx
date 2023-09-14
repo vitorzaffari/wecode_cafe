@@ -12,7 +12,7 @@ export const NotificationProvider = ({ children }) => {
         if (message) {
             timeoutId = setTimeout(() => {
                 setMessage('');
-            }, 4000);
+            }, NOTIFICATION_TIMEOUT);
         }
 
         return () => {
@@ -32,6 +32,7 @@ export const NotificationProvider = ({ children }) => {
 
     }
 
+    const NOTIFICATION_TIMEOUT = 4000;
 
     return (
         <NotificationContext.Provider value={{ message, displayMessage }}>{children}</NotificationContext.Provider>

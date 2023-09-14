@@ -8,8 +8,8 @@ const ConhecaMais = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const sliderRef = useRef()
 
-  function handleClick(n) {
-    if (n === 0) {
+  function handleClick(slideNumber) {
+    if (slideNumber === 0) {
       sliderRef.current.style.transform = `translate(0%)`
       setCurrentSlide(0)
     } else {

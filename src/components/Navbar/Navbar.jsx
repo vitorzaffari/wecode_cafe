@@ -24,7 +24,7 @@ const Navbar = () => {
 
 
 
-  function handleMenu() {
+  function handleMenu() {// se esta aberto, fecha, e vice-versa
 
     if (isMenuOpen) {
       menuRef.current.style.transform = `translateX(-100%)`
@@ -36,40 +36,40 @@ const Navbar = () => {
       menuRef.current.style.transform = `translateX(0%)`
     }
 
-    // menuRef.current.focus()
     setIsMenuOpen(prev => !prev)
   }
 
 
-  function handleCart(e) {
+  function handleCart() {// se esta aberto, fecha, e vice-versa, max-heigth é utilizado para animação dinâmica
+
     const cartHeight = cartRef.current.scrollHeight;
     if (isCartOpen) {
-      setIsCartOpen((prevIsCartOpen) => !prevIsCartOpen)
+      setIsCartOpen(!isCartOpen)
       cartRef.current.style.maxHeight = '0px'
     } else {
       cartRef.current.style.maxHeight = `${cartHeight}px`
-      setIsCartOpen((prevIsCartOpen) => !prevIsCartOpen)
+      setIsCartOpen(!isCartOpen)
       setIsFavOpen(false)
       favRef.current.style.maxHeight = '0px'
 
     }
   }
 
-  function handleFav(e) {
+  function handleFav() {// se esta aberto, fecha, e vice-versa, max-heigth é utilizado para animação dinâmica
 
     const favHeight = favRef.current.scrollHeight;
     if (isFavOpen) {
-      setIsFavOpen((prevIsFavOpen) => !prevIsFavOpen)
+      setIsFavOpen(!isFavOpen)
       favRef.current.style.maxHeight = '0px'
     } else {
       favRef.current.style.maxHeight = `${favHeight}px`
-      setIsFavOpen((prevIsFavOpen) => !prevIsFavOpen)
+      setIsFavOpen(!isFavOpen)
 
     }
   }
 
 
-  useEffect(() => {
+  useEffect(() => { //muda a cor do navbar ao scroll
 
     function handleScroll() {
       if (window.scrollY > 0) {
@@ -88,13 +88,12 @@ const Navbar = () => {
     }
   }, [])
 
-  useEffect(() => {
+  useEffect(() => { //ao clicar fora do menu aberto, fecha
     function handleClickOutside(e) {
       if (isMenuOpen) {
         if (menuRef.current && (!menuRef.current.contains(e.target) && e.target.id !== 'menu')) {
           setIsMenuOpen(false)
           menuRef.current.style.transform = `translateX(-100%)`
-
         }
       } else if (isCartOpen) {
         if (cartRef.current && (!cartRef.current.contains(e.target) && e.target.id !== 'cart')) {
@@ -121,7 +120,7 @@ const Navbar = () => {
 
   }, [isMenuOpen, isCartOpen, isFavOpen])
 
-  useEffect(() => {
+  useEffect(() => { // possibilita animação dinâmica do container ao utilizar js para obter a sua altura
     if (isCartOpen) {
       const cartHeight = cartRef.current.scrollHeight;
       cartRef.current.style.maxHeight = `${cartHeight}px`;
@@ -129,7 +128,7 @@ const Navbar = () => {
     }
   }, [cart, isCartOpen])
 
-  useEffect(() => {
+  useEffect(() => { // possibilita animação dinâmica do container ao utilizar js para obter a sua altura
 
     if (isFavOpen) {
       const favHeight = favRef.current.scrollHeight;
@@ -150,7 +149,7 @@ const Navbar = () => {
           <Search fill={color} />
         </div>
         <div className="middle">
-          <a href="#" className='link logo'>
+          <a href="#hero" className='link logo'>
             <WecodeLogo fill={color} />
           </a>
         </div>
