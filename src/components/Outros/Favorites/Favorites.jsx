@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import './favorites.scss'
+import './Favorites.scss'
 import { NavContext } from '../../../context/NavContext'
 import { NotificationContext } from '../../../context/NotificationContext'
 
