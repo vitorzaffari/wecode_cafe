@@ -1,18 +1,4 @@
-.close-cart {
-  color: var(--text-color-light);
-  background-color: var(--background-color-dark);
-  padding: 1rem;
-  position: absolute;
-  bottom: 5px;
-  left: 0px;
-  border-radius: 0 5px 5px 0;
-  font-size: 0.7rem;
-  transition: transform 300ms ease;
-  transform: translateX(-100%);
-}
-.close-cart:focus {
-  transform: translateX(0%);
-}
+
 .cart-container.show {
   opacity: 1;
   visibility: visible;
@@ -168,6 +154,24 @@
     }
   }
 }
+
+.close-cart {
+  color: var(--text-color-light);
+  background-color: var(--background-color-dark);
+  padding: 1rem;
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  border-radius: 0 5px 5px 0;
+  font-size: 0.7rem;
+  transition: transform 300ms ease;
+  transform: translateX(-100%);
+}
+.close-cart:focus {
+  transform: translateX(0%);
+}
+
+
 
 @media (min-width: 768px) {
   .cart-container {

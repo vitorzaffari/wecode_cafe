@@ -2,18 +2,22 @@ import { useContext, useEffect, useState } from 'react'
 import AddBag from '../../svg-components/AddBag'
 import FavoriteIcon from '../../svg-components/FavoriteIcon'
 import './CoffeeCard.scss'
-import { CartContext } from '../../../context/CartContext'
+import { NavContext } from '../../../context/NavContext'
 
 
-const CoffeeCard = ({ id, title, img, info, price, sale, displayMessage } ) => {
+const CoffeeCard = ({ id, title, img, info, price, sale, displayMessage }) => {
   const [isFavorite, setIsFavorite] = useState(false)
-  const { addToCart } = useContext(CartContext)
+  const { addToCart, addToFavorites, favorites } = useContext(NavContext)
   function handleFavorite() {
+    addToFavorites({ id, title, img, info, price })
+
+
+
     isFavorite
-    ? displayMessage('remove', 'favorite')
-    : displayMessage('add', 'favorite')
+      ? displayMessage('remove', 'favorite')
+      : displayMessage('add', 'favorite')
     setIsFavorite(!isFavorite)
-    
+
   }
 
   function handleAddToCard() {
@@ -22,14 +26,20 @@ const CoffeeCard = ({ id, title, img, info, price, sale, displayMessage } ) => {
     displayMessage('add', 'carrinho')
   }
 
+  useEffect(() => {
+
+    const index = favorites.findIndex(item => item.id === id)
+    index === -1 ? setIsFavorite(false) : ''
+
+  }, [favorites])
   return (
     <div className='coffee-card'>
       <div className="card-top">
         <img src={img} alt={title} />
-        <button title='Adicionar aos favoritos' className='fav-icon' onClick={handleFavorite}>
+        <button className='fav-icon' id='fav' onClick={handleFavorite}>
           <FavoriteIcon width={24} height={24} isFavorite={isFavorite} />
         </button>
-        <button title='Adicionar ao carrinho' className='add-bag' id='cart' onClick={handleAddToCard}>
+        <button className='add-bag' id='cart' onClick={handleAddToCard}>
           <AddBag fill='#0D98E6' />
         </button>
       </div>

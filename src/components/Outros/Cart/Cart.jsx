@@ -1,13 +1,13 @@
 import { useContext } from 'react'
 import './Cart.scss'
-import { CartContext } from '../../../context/CartContext'
+import { NavContext } from '../../../context/NavContext'
 import { NotificationContext } from '../../../context/NotificationContext'
 
 
 
 const Cart = ({ forwardedRef, isCartOpen, handleCart }) => {
 
-    const { cart, addToCart, removeFromCart, totalPrice } = useContext(CartContext)
+    const { cart, addToCart, removeFromCart, totalPrice } = useContext(NavContext)
     const { displayMessage } = useContext(NotificationContext);
 
     function handleAddToCart(item) {

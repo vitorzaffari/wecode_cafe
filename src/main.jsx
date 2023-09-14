@@ -1,15 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import { CartProvider } from './context/CartContext.jsx'
+import { NavProvider } from './context/NavContext.jsx'
 import { NotificationProvider } from './context/NotificationContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <CartProvider>
+    <NavProvider>
       <NotificationProvider>
         <App />
       </NotificationProvider>
-    </CartProvider>
+    </NavProvider>
   </React.StrictMode>
 )

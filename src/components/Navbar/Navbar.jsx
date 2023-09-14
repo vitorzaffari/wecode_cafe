@@ -6,18 +6,21 @@ import Avatar from '../svg-components/Avatar'
 import Bag from '../svg-components/Bag'
 import Menu from '../Outros/Menu/Menu'
 import Cart from '../Outros/Cart/Cart'
+import Favorites from '../Outros/Favorites/Favorites'
 import { useContext, useEffect, useRef, useState } from 'react'
-import { CartContext } from '../../context/CartContext'
+import { NavContext } from '../../context/NavContext'
 
 const Navbar = () => {
-  const { cart } = useContext(CartContext)
+  const { cart, favorites } = useContext(NavContext)
   const [color, setColor] = useState('#fff')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
+  const [isFavOpen, setIsFavOpen] = useState(false)
 
   const navRef = useRef()
   const menuRef = useRef()
   const cartRef = useRef()
+  const favRef = useRef()
 
 
 
@@ -28,26 +31,42 @@ const Navbar = () => {
     } else {
       setIsCartOpen(false)
       cartRef.current.style.maxHeight = '0px'
+      setIsFavOpen(false)
+      favRef.current.style.maxHeight = '0px'
       menuRef.current.style.transform = `translateX(0%)`
     }
 
-    menuRef.current.focus()
+    // menuRef.current.focus()
     setIsMenuOpen(prev => !prev)
   }
 
+
   function handleCart(e) {
-    console.log(e.target)
     const cartHeight = cartRef.current.scrollHeight;
-    console.log(cartHeight)
     if (isCartOpen) {
       setIsCartOpen((prevIsCartOpen) => !prevIsCartOpen)
       cartRef.current.style.maxHeight = '0px'
     } else {
       cartRef.current.style.maxHeight = `${cartHeight}px`
       setIsCartOpen((prevIsCartOpen) => !prevIsCartOpen)
+      setIsFavOpen(false)
+      favRef.current.style.maxHeight = '0px'
+
     }
   }
 
+  function handleFav(e) {
+
+    const favHeight = favRef.current.scrollHeight;
+    if (isFavOpen) {
+      setIsFavOpen((prevIsFavOpen) => !prevIsFavOpen)
+      favRef.current.style.maxHeight = '0px'
+    } else {
+      favRef.current.style.maxHeight = `${favHeight}px`
+      setIsFavOpen((prevIsFavOpen) => !prevIsFavOpen)
+
+    }
+  }
 
 
   useEffect(() => {
@@ -82,10 +101,15 @@ const Navbar = () => {
           setIsCartOpen(false)
           cartRef.current.style.maxHeight = '0px'
         }
+      } else if (isFavOpen) {
+        if (favRef.current && (!favRef.current.contains(e.target) && e.target.id !== 'fav')) {
+          setIsFavOpen(false)
+          favRef.current.style.maxHeight = '0px'
+        }
       }
     }
 
-    if (isMenuOpen || isCartOpen) {
+    if (isMenuOpen || isCartOpen || isFavOpen) {
       document.addEventListener('click', handleClickOutside)
     } else {
       document.removeEventListener('click', handleClickOutside)
@@ -95,7 +119,7 @@ const Navbar = () => {
       document.removeEventListener('click', handleClickOutside)
     }
 
-  }, [isMenuOpen, isCartOpen])
+  }, [isMenuOpen, isCartOpen, isFavOpen])
 
   useEffect(() => {
     if (isCartOpen) {
@@ -104,6 +128,15 @@ const Navbar = () => {
 
     }
   }, [cart, isCartOpen])
+
+  useEffect(() => {
+
+    if (isFavOpen) {
+      const favHeight = favRef.current.scrollHeight;
+      favRef.current.style.maxHeight = `${favHeight}px`;
+
+    }
+  }, [favorites, isFavOpen])
 
   return (
     <>
@@ -122,7 +155,10 @@ const Navbar = () => {
           </a>
         </div>
         <div className="right">
-          <Avatar fill={color} />
+          <button id='fav' onClick={handleFav}>
+            <Avatar fill={color} />
+          </button>
+          <Favorites forwardedRef={favRef} isFavOpen={isFavOpen} handleFav={handleFav} />
           <button className="bag-wrap" id='cart' onClick={handleCart} >
             <Bag fill={color} />
             <span className='bag-qty' id='cart'>{cart.length}</span>
